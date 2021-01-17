@@ -122,9 +122,9 @@ int main(void) {
 			} else if (signalCode == SIGUSR2 && childPID == 0) {
 				execvp(secondCommand, secondCommandTokens); // Executes second command upon SUGSR2.
 			} else {
-				wait(NULL);
+				wait(NULL); // Waits for child process to be finished.
 
-				signalCode = 0;
+				signalCode = 0; // Resets the default state to resume listening to other signals.
 			}
 		}
 	}
